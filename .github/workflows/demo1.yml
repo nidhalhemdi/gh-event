@@ -5,7 +5,17 @@ on:
       - opened
       # - synchronize
       # - reopened
+    branches:
+      - main
+      # - "feat-*" # match any branch that starts with "feat-"
+      # - "dev-*"
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      # - "dev-*" # match any branch that starts with "dev-"
+    paths-ignore:
+      - ".github/workflows/**"
 jobs:
   deploy:
     runs-on: ubuntu-latest
